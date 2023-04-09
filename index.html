@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="green.js"></script>
+		<link rel="stylesheet" href="green.css">
+		<title>Carbon Footprint</title>
+	</head>
+
+<body class="body" >
+	<h1>Carbon Footprint Calculator</h1>
+
+	<form id="calculator">
+		<p>
+			<label for="transportation">Transportation (miles per week)</label>
+			<input type="number" id="transportation" name="transportation" required>
+		</p>
+		<p>
+			<label for="electricity">Electricity (kilowatt-hours per month)</label>
+			<input type="number" id="electricity" name="electricity" required>
+		</p>
+		<p>
+			<label for="naturalgas">Natural Gas (therms per month)</label>
+			<input type="number" id="naturalgas" name="naturalgas" required>
+		</p>
+		<p>
+			<label for="diet">Diet (meat servings per week)</label>
+			<input type="number" id="diet" name="diet" required>
+		</p>
+		<button type="submit" class="btn">Calculate</button>
+	</form>
+
+	<p id="result"></p>
+	<script>
+		const calculatorForm = document.getElementById("calculator");
+		calculatorForm.addEventListener("submit", function(event) {
+			event.preventDefault();
+			const transportation = document.getElementById("transportation").value;
+			const electricity = document.getElementById("electricity").value;
+			const naturalgas = document.getElementById("naturalgas").value;
+			const diet = document.getElementById("diet").value;
+			const carbonFootprint = (transportation * 0.008887) + (electricity * 0.000546) + (naturalgas * 0.005303) + (diet * 3.3);
+			document.getElementById("result").textContent = "Your carbon footprint is " + carbonFootprint + " metric tons of CO2 equivalent per year.";
+		});
+  		
+	</script>
+            
+</body>
+<head>
+	
+<body>
+	<div id="suggestion">
+		<h3>Do your part!</h3>
+		<p id="activity"><b> suggestion:</b></p>
+		<button onclick="suggestActivity()">Get suggestion</button>
+	  </div>
+</body>
+</head>
+</html>
